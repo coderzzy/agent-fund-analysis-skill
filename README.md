@@ -1,3 +1,5 @@
+<div align="center">
+
 # 基金分析 Skill
 
 <p align="center">
@@ -12,6 +14,7 @@
 <p align="center">
   <b>输入基金代码 → 自动计算指标 → 生成专业分析报告 → 获取数据洞察</b>
 </p>
+</div>
 
 ---
 
