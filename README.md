@@ -42,6 +42,7 @@
 | 📅 **月度收益分析** | 月度收益分布统计和可视化 |
 | 🤖 **Agent 数据洞察** | 自动生成专业的数据解读和投资建议 |
 | 📄 **PDF 一键导出** | 支持导出为 PDF，方便分享和存档 |
+| 🔔 **每日定时监控** | Kaggle自动运行，飞书推送净值与压力位数据 |
 
 ---
 
@@ -98,6 +99,41 @@ output_fund/
 ![查询示例](README_ASSETS/query_example.jpg)
 
 **生成的报告示例：** 见 [README_ASSETS/report_example.pdf](README_ASSETS/report_example.pdf)
+
+---
+
+## 附加工具：每日定时监控
+
+除了用于全面分析的 `fund_analysis` Skill，本项目还提供了一个独立的 **Kaggle定时监控脚本**。
+
+### 功能区别
+
+| 工具 | 用途 | 触发方式 | 输出 |
+|------|------|----------|------|
+| `fund_analysis` Skill | **择股分析** - 买入前的全面基本面分析 | Agent手动触发 | HTML报告 + 数据洞察 |
+| `fund_analysis_kaggle_schedule_notify.ipynb` | **择时监控** - 已持有基金的每日净值与压力位跟踪 | Kaggle定时自动执行 | 飞书卡片推送 |
+
+### 使用场景
+
+如果你已经购买了基金，想要：
+- 📊 **每日获取最新净值**和涨跌幅
+- 🎯 **监控压力位/支撑位**变化
+- ⚠️ **判断是否需要止盈/止损**
+
+那么可以使用这个定时监控脚本，每日自动推送关键数据到飞书。
+
+### 快速配置
+
+1. **复制Notebook**到Kaggle
+2. **填写配置**：
+   - `FEISHU_WEBHOOK_URL`: 你的飞书机器人Webhook地址（留空需自行填写）
+   - `FUND_CODES`: 需要监控的基金代码列表（支持多个）
+3. **设置定时调度**：
+   - Frequency: Daily（每日）
+   - Time: 20:00（晚上8点，交易日收盘后）
+   - Timezone: Asia/Shanghai
+
+详细配置说明见Notebook内部注释。
 
 ---
 
